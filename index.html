@@ -5,13 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dynamic Table with Image Zoom</title>
 <style>
+    button{
+        background-color: rgb(7, 8, 92);
+        border-radius: 10px;
+        border: 0;
+        padding: 5px;
+        color: aliceblue;
+        box-shadow: 2px 2px 2px rgb(81, 88, 114)
+    }
+    button:hover{
+        background-color: rgb(0, 0, 107);
+        transform: translateY(-3px);
+    }
+    h1{
+        text-align: center;
+        color: rgb(0, 0, 117);
+    }
+    .des {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .content {
+        text-align: center;
+        width: 80%; /* Adjust the width as needed */
+        max-width: 800px; /* Set a maximum width */
+        padding: 20px;
+        margin: 20px auto; /* Center the content within the container */
+        border: 1px solid rgb(212, 212, 212);
+        border-radius: 20px;
+    }
     table {
         border-collapse: collapse;
-        width: 50%;
+        width: 60%;
         margin: 20px auto;
     }
     th, td {
-        border: 1px solid rgb(255, 255, 255)55, 255, 255);
+        border: 1px solid rgb(255, 255, 255);
         padding: 18px 8px;
         text-align: center;
     }
@@ -53,17 +85,25 @@
 </head>
 <body>
 
-<!-- <h2>Dynamic Table with Image Zoom</h2> -->
 
-<button onclick="increaseSize()">Increase Table Size</button>
-<button onclick="decreaseSize()">Decrease Table Size</button>
+<!-- <button onclick="increaseSize()">Increase Table Size</button>
+<button onclick="decreaseSize()">Decrease Table Size</button> -->
+
+<h1>Results on Indivisual Images</h1><br>
+<div class="des">
+    <div class="content">
+        <h3>Description:</h3>
+        <p>We are considering two images, Image1 and Image2. Image1 is considered as idel image. We choose different image each time which is Image2 and we then find common uids from both of them and calculate the Displacement between corresponding points from these two images.</p>
+    </div>
+</div>
+
 
 <table id="myTable">
     <thead>
         <tr>
+            <th>Image1</th>
             <th></th>
-            <th></th>
-            <th></th>
+            <th>Image2</th>
             <th></th>
             <th>Displacement</th>
             <th>Sorted Displacement</th>
