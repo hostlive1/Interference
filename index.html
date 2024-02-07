@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Results on Indivisual Images</title>
+<title>Dynamic Table with Image Zoom</title>
 <style>
     button{
         background-color: rgb(7, 8, 92);
@@ -67,7 +67,7 @@
         margin: 10% auto;
         display: block;
         width: 80%;
-        max-width: 900px;
+        max-width: 1300px;
     }
     .close {
         color: #aaa;
@@ -179,7 +179,25 @@
         var modalImg = document.getElementById("modalImg");
         modal.style.display = "block";
         modalImg.src = imgSrc;
-    }
+
+        // Reset any previous zoom
+        modalImg.style.width = "auto";
+        modalImg.style.height = "auto";
+        modalImg.style.cursor = "zoom-in";
+
+        // Toggle zoom functionality on click
+        modalImg.onclick = function() {
+            if (modalImg.style.cursor === "zoom-in") {
+                modalImg.style.cursor = "zoom-out";
+                modalImg.style.width = "100%";
+                modalImg.style.height = "auto";
+            } else {
+                modalImg.style.cursor = "zoom-in";
+                modalImg.style.width = "auto";
+                modalImg.style.height = "auto";
+            }
+        };
+        }
 
     function closeModal() {
         var modal = document.getElementById("myModal");
@@ -193,6 +211,7 @@
         }
     }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zoom.js/2.3.1/zoom.min.js"></script>
 
 </body>
 </html>
